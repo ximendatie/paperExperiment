@@ -21,7 +21,7 @@ client.on('connect', function () {
             else
                 console.log('null?');
             //循环10次
-            if(i == 10){
+            if(i == 20){
                 clearInterval(timer);
             }
             i++;
