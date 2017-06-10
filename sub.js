@@ -33,10 +33,10 @@ Sclient.on('message', function (topic, message) {
         console.log(messObj.sendTime+'~'+messObj.getTime+'~'+messObj.resultTime);
         console.log('network:'+(messObj.getTime-messObj.sendTime)+'ms'+'\nsolve:'+(messObj.resultTime-messObj.getTime)+'ms');
 
-        var temp = new Object();
-        temp.netTime = messObj.getTime-messObj.sendTime;
-        temp.solTime = messObj.resultTime-messObj.getTime;
-        timeResult.push(temp);
+        // var temp = new Object();
+        // temp.netTime = messObj.getTime-messObj.sendTime;
+        // temp.solTime = messObj.resultTime-messObj.getTime;
+        // timeResult.push(temp);
 
         // if(timeResult.length === 20){
         //   var a=0,b=0;
