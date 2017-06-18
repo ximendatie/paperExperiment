@@ -3,27 +3,26 @@ var fs = require('fs');
 
 var Sclient = mqtt.connect('mqtt://127.0.0.1'); 
 
-// var timeResult = new Array();
-
 
 Sclient.on('connect', function () {
   Sclient.subscribe('ICS');
+  console.log('receive time and result time (20):');
 });
 Sclient.on('message', function (topic, message) {
-    var getTime = new Date().getTime();
-    var messObj = JSON.parse(message);//解析，占时间
-    messObj.getTime = getTime;
 
-    console.log('\ncloud solve');    
-    console.log(messObj.sendTime+'~'+messObj.resultTime+'~'+messObj.getTime);
-    console.log('network:'+(messObj.getTime-messObj.resultTime)+'ms'+'\nsolve:'+(messObj.resultTime-messObj.getTime)+'ms');
-
-
-    // fs.writeFile('./result.md',JSON.stringify(messObj),function(err){
-    //         if(err) throw err;
-    //         console.log('has finished');
-    // });
-
+    console.log(new Date().getTime());//接受数据时间
+    message = message.toString();
+    var result='';
+    for(var i = 0; i < message.length; i++){
+      if(message[i] === 't'){
+        result+='t';
+      }
+      if(i === message.length - 1){
+        console.log(new Date().getTime());//处理结束时间
+      }
+        
+    }
+    
     
 });
 
