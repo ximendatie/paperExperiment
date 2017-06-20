@@ -24,35 +24,17 @@ client.on('connect', function () {
   
 client.on('message', function (topic, message) {
 
-    switch (topic){
-
-        case 'ICS1':
-            console.log('ICS1 rec:' + new Date().getTime());
+            var num = parseInt(topic);
+            console.log(topic+' received:' + new Date().getTime());
             message = message.toString();
-            var result='';
-            for(var i = 0; i < message.length; i++){
-                if(message[i] === 't'){
-                    result+='t';
-                }
-                if(i === message.length - 1){
-                    console.log(new Date().getTime());//处理结束时间
+            var len = message.length;
+            var result=message.substr(len/2);
+            for(var i = 0; i < len/2; i++){
+                if(i === len/2 - 1){
+                    console.log(topic+' solved:' +new Date().getTime());//处理结束时间
+                    client.publish('topic'+nun,result);
                 }  
             }
-            break;
-
-
-        case 'ICS2':
-
-            break;
-        case 'ICS3':
-
-            break;
-        default:
-            console.log('no topic');
-
-    }
-    
-    
     
 });
 
