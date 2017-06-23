@@ -13,7 +13,7 @@ Sclient.on('connect', function () {
 Sclient.on('message', function (topic, message) {
     
     console.log(new Date().getTime());
-// console.log(message.toString());
+console.log(message.toString());
     
 });
 
