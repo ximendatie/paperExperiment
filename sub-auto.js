@@ -15,6 +15,7 @@ client.on('connect', function () {
     client.subscribe('ICS7');
     client.subscribe('ICS8');
     client.subscribe('ICS9');
+    client.subscribe('ICS10');
     
 });
   

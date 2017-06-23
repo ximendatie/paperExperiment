@@ -38,7 +38,7 @@ client.on('message', function (topic, message) {
     for(var i = 0; i < parseInt(len/2); i++){
         if(i === parseInt(len/2) - 1){
             console.log(topic+' solved:' +new Date().getTime());//处理结束时间
-            if(num < 10)
+            if(num < 9)
                 client.publish('ICS'+(num+1),result);
             else
                 Pclient.publish('ICS'+(num+1),result);
@@ -46,10 +46,3 @@ client.on('message', function (topic, message) {
     }
     
 });
-
-
-
-
- 
-
-
